@@ -1,4 +1,4 @@
-/* Create caves  */
+/* Create caves - outline for each cave, used to build the game world */
 
 // Store titles for each cave
 
