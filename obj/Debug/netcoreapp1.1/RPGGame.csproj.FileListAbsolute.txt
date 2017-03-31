@@ -1,0 +1,8 @@
+/home/eric/cSharpPrograms/RPGGame/bin/Debug/netcoreapp1.1/RPGGame.deps.json
+/home/eric/cSharpPrograms/RPGGame/bin/Debug/netcoreapp1.1/RPGGame.runtimeconfig.json
+/home/eric/cSharpPrograms/RPGGame/bin/Debug/netcoreapp1.1/RPGGame.runtimeconfig.dev.json
+/home/eric/cSharpPrograms/RPGGame/bin/Debug/netcoreapp1.1/RPGGame.dll
+/home/eric/cSharpPrograms/RPGGame/bin/Debug/netcoreapp1.1/RPGGame.pdb
+/home/eric/cSharpPrograms/RPGGame/obj/Debug/netcoreapp1.1/RPGGame.AssemblyInfo.cs
+/home/eric/cSharpPrograms/RPGGame/obj/Debug/netcoreapp1.1/RPGGame.dll
+/home/eric/cSharpPrograms/RPGGame/obj/Debug/netcoreapp1.1/RPGGame.pdb
