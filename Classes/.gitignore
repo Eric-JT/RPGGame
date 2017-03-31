@@ -1,6 +1,0 @@
-# Build results
-bin/
-obj/
-
-*.json
-.vscode/
