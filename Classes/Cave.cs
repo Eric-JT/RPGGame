@@ -11,8 +11,6 @@ namespace RPGGame
         public const string sWest = "west";
         public const string sEast = "east";
 
-        /* Create caves - outline for each cave, used to build the game world */
-        
         // Store titles for each cave
         protected string m_sCaveTitle;
         
@@ -20,16 +18,31 @@ namespace RPGGame
         protected string m_sCaveDescription;
         
         // Store Items and available Exits in cave - list
-        protected List<string> exits;
+        protected List<string> m_listsExits;
+        protected List<Items> m_listItems;
+
+        public List<Items> Items
+        {
+            // store and retrieve item names 
+            get {
+                return m_listItems;
+            }
+            set {
+                m_listItems = value;
+            }
+        }
 
         public Cave(){
-            exits = new List<string>();
+            // for each cave created, crete a list of exits and items
+            m_listsExits = new List<string>();
+            m_listItems = new List<Items>();
         }
         
         /* * * Get/Set methods * * */
         /* * * Cave Titles * * */
         public string sCaveTitle
         {
+            // store or retrieve cave title
             get {
                 return m_sCaveTitle;
             }
@@ -41,6 +54,7 @@ namespace RPGGame
         /* * * Cave Description * * */
         public string sDescription
         {
+            // store or retrieve cave description
             get {
                 return m_sCaveDescription;
             }
@@ -50,59 +64,111 @@ namespace RPGGame
         }
 
         /* * * Cave Description More detail * * */
-        public void sDescribeCave()
+        public void DescribeCave()
         {
+            // write out decription, list of items, list of available exits
             Console.WriteLine(this.m_sCaveDescription);
-            Console.WriteLine(this.GetListOfExits() );
-            // display items in room
+            Console.WriteLine(this.GetListOfExits());
+            Console.WriteLine(this.GetListOfItems());
         }
+
+        public Items GetItem(string itemName)
+        {
+            // input string for item name
+            // check each item in teh Rooms
+            // if the item is in the room return that item
+            // else return nothing
+            foreach (Items item in this.m_listItems)
+            {
+                if (item.sTitle.ToLower() == itemName.ToLower())
+                    return item;
+            }
+            return null;
+        }
+
+        private string GetListOfItems()
+        {
+            // create empty string to store items in
+            // create output message
+            string sItem = "";
+            string sOutput = "Items in Rooms:";
+
+            // if the item list of the current cave is > 0
+            // add each item to item list
+            // return the list of items
+            // else return none
+            if (this.m_listItems.Count > 0)
+            {
+                foreach (Items item in this.m_listItems)
+                {
+                    sItem += "\n[" + item.sTitle + "]";
+                }
+            }
+            else
+            {
+                sItem = "\n<none>";
+            }
+
+            return "\n" + sOutput + "\n" + sItem;
+        }
+
 
         /* * * Display Title * * */
         public void ShowTitle()
         {
+            // Write out the title to the current cave
             Console.WriteLine(this.sCaveTitle);
         }
         
-        
-        // store exits in cave - list
-        
-        // Describe()
-                
-        // ShowTitle()
-                
-        // GetItem()
+        /* * * Exits * * */
+        public void AddExit(string directon)
+        {
+            // input is a direction
+            // adds an exit refuring to the given direction
+            if (this.m_listsExits.IndexOf(directon) == -1)
+                this.m_listsExits.Add(directon);
+            
+        }
+
+        public bool CanExit(string direction)
+        {
+            // input is a string
+            // return true or false if the player can exit the given direction
+            foreach (string validExit in this.m_listsExits)
+            {
+                if (direction == validExit)
+                    return true;
+            }
+            return false;
+        }
+    
                
-        // AddExit()
-         
-        // RemoveExit()
-                
-        // CanExit()
-               
-        // GetItemList()
-               
-        // GetExitList()
+        /* * * Get list of exits * * */
         private string GetListOfExits()
         {
+            // Check the list of exits for the given cave
+            // output a list of exits
             string sExit = "";
-            string sMessage = "Available exits are: ";
+            string sOutput = "You can exit: ";
 
             // check if there are exits in the cave
-            if (this.exits.Count > 0) {
-                foreach (string sExitDirection in this.exits) {
+            if (this.m_listsExits.Count > 0) {
+                foreach (string sExitDirection in this.m_listsExits) {
                     sExit += "\n" + sExitDirection;
                 }
             }
             else {
                 sExit = "\nNone";
             }
-            return sMessage + sExit;
+            return sOutput + sExit;
         }
                
-        // GetCoordinates()
+  
 
-        /* * * Check for valid directions * * */
+        /* * * Check if move is a valid direction for cave * * */
         public static bool IsValidDirection(string direction)
         {
+            // input is a string, returns true or false
             switch (direction)
             {
                 case sNorth:
@@ -116,5 +182,7 @@ namespace RPGGame
             }
             return false;
         }
+
+        
     }    
 }

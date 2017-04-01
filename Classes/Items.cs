@@ -1,12 +1,35 @@
-/* building blocks for items */
+using System;
 
-// store title for item
+namespace RPGGame
+{
+    class Items
+    {
+        // item name
+        private string m_sTitle;
+        // store text to display when picking item up
+        private string m_sPickupText;
+        // store weight of item
+        private int m_iWeight = 1;
 
-// store weight of item
+        public int iWeight
+        {
+            // get and set the weight of items
+            get { return m_iWeight; }
+            set { m_iWeight = value; }
+        }
 
-// get/set weight
+        public string sPickupText
+        {
+            // get and set the pick up text for items
+            get { return m_sPickupText; }
+            set { m_sPickupText = value; }
+        }
 
-// get set title
-
-// get/set description
-
+        public string sTitle
+        {
+            // get and set the title of items
+            get { return m_sTitle; }
+            set { m_sTitle = value; }
+        }
+    }
+}

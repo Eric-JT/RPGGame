@@ -1,11 +1,16 @@
-/* Enemy Class */
+/* Player Class */
 
-// get and set positionX and positionY - integers
+// position x
 
-// Move methods that increment or decrement the player postionX and positionY
+// position y
 
-// attack
+// get set position x and enemy
 
-// get current room
+// get the current room
+// return the location of the room b using th enemies location x and 
 
-// Health
+// enemy health
+
+// attack Player
+
+// reduce players health when attacking
