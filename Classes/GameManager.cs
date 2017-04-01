@@ -36,10 +36,7 @@ namespace RPGGame
             Console.Write("\nYou may now close this window.");
             Console.CursorVisible = false;
 
-            while (true)
-            {
-                Console.ReadKey(true);
-            }
+            
         }
 
         // Add rules for the game here
