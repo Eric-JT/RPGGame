@@ -75,7 +75,7 @@ namespace RPGGame
         public Items GetItem(string itemName)
         {
             // input string for item name
-            // check each item in teh Rooms
+            // check each item in the cave
             // if the item is in the room return that item
             // else return nothing
             foreach (Items item in this.m_listItems)
@@ -91,7 +91,7 @@ namespace RPGGame
             // create empty string to store items in
             // create output message
             string sItem = "";
-            string sOutput = "Items in Rooms:";
+            string sOutput = "Items in Cave:";
 
             // if the item list of the current cave is > 0
             // add each item to item list
